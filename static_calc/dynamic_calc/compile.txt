@@ -1,0 +1,8 @@
+gcc add.c -c
+gcc div.c -c
+gcc mul.c -c
+gcc sub.c -c
+gcc -shared div.o mul.o add.o sub.o -o liboperations.so
+gcc calc.c -o calc -loperations -L.
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PWD"
+./calc 
